@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Metaphor generator</h1>
+
+<p>Generate a metaphor from two random words and get ideas to view the world differently!</p>
+
+<button onclick="generate()">Generate metaphor!</button>
+
+<p id="Metaphor"></p>
+
+<script>
+var words = [
+	'a rock',
+	'a pair of scissors',
+	'a pen',
+	'a sea',
+	'air',
+	'a basketball',
+	'a fish',
+	'a computer',
+	'wi-fi',
+	'a phone',
+	'a chair',
+	'a language',
+	'a cat',
+	'swimming',
+	'dancing',
+	'a bass',
+	'music'
+	];
+
+function generate() {
+	var num1 = Math.floor(Math.random()*words.length);
+	var num2 = Math.floor(Math.random()*words.length);
+	if (num1 == num2) {
+		if (num2 + 1 < words.length) {
+			num2 = num2 + 1;
+		}
+		else {
+			num2 = num2 - 1;
+		}
+	}
+	var subj = words[num1];
+	var obj = words[num2];
+	document.getElementById("Metaphor").innerHTML = subj + " is like " + obj;
+}
+</script>
+</body>
+</html>
